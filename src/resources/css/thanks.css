@@ -1,15 +1,15 @@
-/* ===== thanks page ===== */
-
-.thanks-wrapper {
+.thanks {
   position: relative;
-  width: 100%;
-  height: calc(100vh - 80px); 
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #fff;
+  overflow: hidden;
 }
 
-.thanks-bg {
+.thanks::before {
+  content: "Thank you";
   position: absolute;
   font-size: 160px;
   color: rgba(0, 0, 0, 0.03);
@@ -17,17 +17,18 @@
   white-space: nowrap;
 }
 
-.thanks-content {
+.thanks-inner {
   text-align: center;
   z-index: 1;
 }
 
-.thanks-content h1 {
+.thanks-title {
   font-size: 32px;
   margin-bottom: 12px;
 }
 
-.thanks-content p {
+.thanks-text {
+  font-size: 16px;
   margin-bottom: 24px;
 }
 
@@ -37,10 +38,5 @@
   background: #7b6d63;
   color: #fff;
   text-decoration: none;
-}
-
-.thanks-message {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  font-size: 14px;
 }

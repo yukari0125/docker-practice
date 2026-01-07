@@ -1,0 +1,28 @@
+.card{
+  max-width: 640px;
+  margin: 0 auto;
+  background:#fff;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  padding: 46px 64px;
+}
+
+.form-row{
+  margin: 0 0 26px;
+}
+.label{
+  margin: 0 0 10px;
+  font-weight: 600;
+  color:#6b5b53;
+}
+
+.actions{
+  text-align:center;
+  margin-top: 36px;
+}
+
+.error{
+  color:#d33;
+  margin: 8px 0 0;
+  font-size: 12px;
+}

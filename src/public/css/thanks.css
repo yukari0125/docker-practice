@@ -1,0 +1,54 @@
+/* 画面中央に配置 */
+.thanks {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* 背景の Thank you（透かし） */
+.thanks::before {
+  content: "Thank you";
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(80px, 15vw, 240px);
+  font-weight: 700;
+  color: #000;
+  opacity: 0.05;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* 前面コンテンツ */
+.thanks__inner {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.thanks__msg {
+  margin-bottom: 24px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #6b625c;
+}
+
+/* HOME ボタン */
+.thanks__btn {
+  display: inline-block;
+  padding: 14px 48px;
+  background: #6b625c;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+body {
+  background: #fff;
+}

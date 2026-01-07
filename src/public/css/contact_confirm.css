@@ -1,0 +1,48 @@
+.confirm{
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.confirm-table{
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #e7e2de;
+}
+
+.confirm-table th,
+.confirm-table td{
+  padding: 20px 24px;
+  border-bottom: 1px solid #e7e2de;
+  font-size: 14px;
+}
+
+.confirm-table th{
+  width: 220px;
+  background: #b7aa9c;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+}
+
+.confirm-actions{
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+}
+
+.btn{
+  padding: 10px 38px;
+  border: 1px solid #6b5b53;
+  background: #6b5b53;
+  color: #fff;
+  cursor: pointer;
+}
+
+.fix{
+  color: #6b5b53;
+  text-decoration: none;
+  font-size: 14px;
+}
