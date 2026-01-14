@@ -12,8 +12,7 @@ Laravel を使用して作成しました。
 以下の手順でアプリを起動できます。
 
 ```bash
-git clone https://github.com/yukari0125/docker-practice.git
-cd docker-practice
+git clone https://github.com/yukari0125/docker-practice
 
 docker compose up -d
 docker compose exec php composer install
@@ -54,5 +53,7 @@ docker compose exec php php artisan migrate --seed
 - お問い合わせ削除機能
 
 ## URL（開発環境）
-- http://localhost/contact（お問い合わせフォーム）
-- http://localhost/admin（管理画面）
+- http://localhost/contact
+（お問い合わせフォーム）
+- http://localhost/admin
+（管理画面）
