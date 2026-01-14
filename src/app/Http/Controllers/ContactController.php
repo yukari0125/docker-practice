@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
 use App\Models\Category;
+use App\Models\Contact; 
 
 class ContactController extends Controller
 {
@@ -57,12 +58,6 @@ class ContactController extends Controller
         'detail'      => $inputs['detail'],
     ]);
 
-    return redirect()->route('thanks');
-    }
-  
-
-    public function thanks()
-    {
-        return view('contact.thanks');
+    return view('contact.thanks');
     }
 }

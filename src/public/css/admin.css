@@ -178,14 +178,21 @@ body {
 .modal{
   position: fixed;
   inset: 0;
-  display:none;
+  display: none;
+  z-index: 9999;      
+  pointer-events: none; 
 }
-.modal.is-open{ display:block; }
+
+.modal.is-open{
+  display: block;
+  pointer-events: auto; 
+}
 
 .modal__overlay{
-  position:absolute;
-  inset:0;
+  position: absolute;
+  inset: 0;
   background: rgba(0,0,0,.15);
+  z-index: 0;
 }
 
 .modal__panel{
@@ -196,51 +203,6 @@ body {
   border: 1px solid #d8cabc;
   box-shadow: 0 6px 18px rgba(0,0,0,.12);
   padding: 38px 44px 30px;
-}
-.modal__close{
-  position:absolute;
-  right: 16px;
-  top: 14px;
-  width: 34px;
-  height: 34px;
-  border: 1px solid #d8cabc;
-  background:#fff;
-  color:#6f6258;
-  border-radius: 50%;
-  cursor:pointer;
+  z-index: 1;
 }
 
-.modal__grid{
-  display:grid;
-  gap: 14px;
-}
-.modal__row{
-  display:grid;
-  grid-template-columns: 160px 1fr;
-  gap: 16px;
-  align-items: start;
-}
-.modal__label{
-  font-weight: 700;
-  color:#6f6258;
-}
-.modal__value{
-  color:#6f6258;
-  white-space: pre-wrap;
-}
-.modal__row--content .modal__value{
-  line-height: 1.8;
-}
-
-.modal__actions{
-  display:flex;
-  justify-content: center;
-  margin-top: 26px;
-}
-
-.modal[aria-hidden="true"] {
-  display: none;
-}
-
-.modal[aria-hidden="false"] {
-  display: block;

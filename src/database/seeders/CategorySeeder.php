@@ -5,27 +5,20 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
 
-    class CategorySeeder extends Seeder
+class CategorySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-        
-    public function run()
+    public function run(): void
     {
-    $categories = [
-        '商品のお届けについて',
-        '商品の交換について',
-        '商品トラブル',
-        'ショップへのお問い合わせ',
-        'その他',
-    ];
+        $categories = [
+            ['name' => '商品のお届けについて'],
+            ['name' => '商品の交換について'],
+            ['name' => '商品トラブル'],
+            ['name' => 'ショップへのお問い合わせ'],
+            ['name' => 'その他'],
+        ];
 
-        foreach ($categories as $name) {
-        Category::create(['name' => $name]);
+        foreach ($categories as $category) {
+            Category::create($category);
         }
     }
-
 }

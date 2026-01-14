@@ -26,15 +26,34 @@
       </div>
     </div>
 
-    <div class="row">
-      <p class="label">性別 <span class="req">※</span></p>
-      <div class="field radios">
-        <label><input type="radio" name="gender" value="male" {{ old('gender','male')=='male'?'checked':'' }}> 男性</label>
-        <label><input type="radio" name="gender" value="female" {{ old('gender')=='female'?'checked':'' }}> 女性</label>
-        <label><input type="radio" name="gender" value="other" {{ old('gender')=='other'?'checked':'' }}> その他</label>
-        @error('gender')<p class="error">{{ $message }}</p>@enderror
-      </div>
-    </div>
+  <div class="row">
+  <p class="label">性別 <span class="req">※</span></p>
+
+  <div class="field radios">
+    <label>
+      <input type="radio" name="gender" value="1"
+        {{ old('gender') == '1' ? 'checked' : '' }}>
+      男性
+    </label>
+
+    <label>
+      <input type="radio" name="gender" value="2"
+        {{ old('gender') == '2' ? 'checked' : '' }}>
+      女性
+    </label>
+
+    <label>
+      <input type="radio" name="gender" value="3"
+        {{ old('gender') == '3' ? 'checked' : '' }}>
+      その他
+    </label>
+
+    @error('gender')
+      <p class="error">{{ $message }}</p>
+    @enderror
+  </div>
+</div>
+
 
     <div class="row">
       <p class="label">メールアドレス <span class="req">※</span></p>

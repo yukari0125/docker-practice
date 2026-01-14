@@ -1,16 +1,19 @@
 <?php
 
-namespace App\Models;
+namespace Database\Seeders;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 
-class Contact extends Model
+class DatabaseSeeder extends Seeder
 {
-    use HasFactory;
-
-    protected $fillable = [
-        'first_name', 'last_name', 'gender', 'email', 'tel',
-        'address', 'building', 'category_id', 'detail'
-    ];
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+        $this->call([
+            CategorySeeder::class,
+            ContactSeeder::class,
+        ]);
+    }
 }

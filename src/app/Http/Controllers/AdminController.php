@@ -17,15 +17,16 @@ class AdminController extends Controller
         return view('admin.index', compact('categories', 'contacts'));
     }
 
-    public function destroy(Contact $contact)
+    public function destroy(Request $request)
     {
+        $contact = Contact::findOrFail($request->id);
         $contact->delete();
+
         return redirect()->route('admin.index');
     }
 
     public function export(Request $request)
     {
-    
         return redirect()->route('admin.index');
     }
 }

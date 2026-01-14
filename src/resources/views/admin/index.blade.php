@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin</title>
+  <link rel="stylesheet" href="{{ asset('css/common.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
 <body>
@@ -104,32 +105,102 @@
   <div class="modal__panel">
     <button class="modal__close js-close-modal" type="button">×</button>
     
-      <div class="modal__grid">
-        <div class="modal__row"><div class="modal__label">お名前</div><div class="modal__value" data-field="name"></div></div>
-        <div class="modal__row"><div class="modal__label">性別</div><div class="modal__value" data-field="gender"></div></div>
-        <div class="modal__row"><div class="modal__label">メールアドレス</div><div class="modal__value" data-field="email"></div></div>
-        <div class="modal__row"><div class="modal__label">電話番号</div><div class="modal__value" data-field="tel"></div></div>
-        <div class="modal__row"><div class="modal__label">住所</div><div class="modal__value" data-field="address"></div></div>
-        <div class="modal__row"><div class="modal__label">建物名</div><div class="modal__value" data-field="building"></div></div>
-        <div class="modal__row"><div class="modal__label">お問い合わせの種類</div><div class="modal__value" data-field="category"></div></div>
-        <div class="modal__row modal__row--content">
-          <div class="modal__label">お問い合わせ内容</div>
-          <div class="modal__value" data-field="content"></div>
-        </div>
+    <div class="modal__grid">
+      <div class="modal__row">
+        <div class="modal__label">お名前</div>
+        <div class="modal__value" data-field="name"></div>
       </div>
-
-    
-      <form id="deleteForm" method="POST" class="modal__delete">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn--danger"
-          onclick="return confirm('本当に削除しますか？')">
-          削除
-        </button>
-      </form>
+      <div class="modal__row">
+        <div class="modal__label">性別</div>
+        <div class="modal__value" data-field="gender"></div>
+      </div>
+      <div class="modal__row">
+        <div class="modal__label">メールアドレス</div>
+        <div class="modal__value" data-field="email"></div>
+      </div>
+      <div class="modal__row">
+        <div class="modal__label">電話番号</div>
+        <div class="modal__value" data-field="tel"></div>
+      </div>
+      <div class="modal__row">
+        <div class="modal__label">住所</div>
+        <div class="modal__value" data-field="address"></div>
+      </div>
+      <div class="modal__row">
+        <div class="modal__label">建物名</div>
+        <div class="modal__value" data-field="building"></div>
+      </div>
+      <div class="modal__row">
+        <div class="modal__label">お問い合わせの種類</div>
+        <div class="modal__value" data-field="category"></div>
+      </div>
+      <div class="modal__row modal__row--content">
+        <div class="modal__label">お問い合わせ内容</div>
+        <div class="modal__value" data-field="content"></div>
+      </div>
     </div>
-  </div>
 
-  <script src="{{ asset('js/admin.js') }}"></script>
+ 
+    <form method="POST"
+          action="{{ route('admin.destroy') }}"
+          class="modal__delete">
+      @csrf
+      @method('DELETE')
+
+      <input type="hidden" name="id" id="delete_id">
+
+      <button type="submit" class="btn btn--danger"
+        onclick="return confirm('本当に削除しますか？')">
+        削除
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modal        = document.querySelector('.js-modal');
+  const closeBtns    = document.querySelectorAll('.js-close-modal');
+  const detailBtns   = document.querySelectorAll('.detail-btn');
+  const deleteIdInput= document.getElementById('delete_id');
+  const overlay      = document.querySelector('.modal__overlay');
+
+
+  detailBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+   
+      modal.querySelector('[data-field="name"]').textContent     = btn.dataset.name;
+      modal.querySelector('[data-field="gender"]').textContent   = btn.dataset.gender;
+      modal.querySelector('[data-field="email"]').textContent    = btn.dataset.email;
+      modal.querySelector('[data-field="tel"]').textContent      = btn.dataset.tel;
+      modal.querySelector('[data-field="address"]').textContent  = btn.dataset.address;
+      modal.querySelector('[data-field="building"]').textContent = btn.dataset.building;
+      modal.querySelector('[data-field="category"]').textContent = btn.dataset.category;
+      modal.querySelector('[data-field="content"]').textContent  = btn.dataset.content;
+
+      if (deleteIdInput) {
+        deleteIdInput.value = btn.dataset.id;
+      }
+  
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+    });
+  });
+
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+    });
+  });
+
+  if (overlay) {
+    overlay.addEventListener('click', function() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+    });
+  }
+});
+</script>
 </body>
 </html>

@@ -58,3 +58,44 @@ body {
   background: #f2f2f2;
   outline: none;
 }
+
+/* ===== header logo center ===== */
+.header__inner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.header__right{
+  position: absolute;
+  right: 20px;
+}
+
+.logo{
+  margin: 0;
+}
+
+.logo a{
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== header logo center (force) ===== */
+header.header .header__inner{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  position: relative !important;
+}
+
+header.header .header__right{
+  position: absolute !important;
+  right: 20px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+header.header .logo{
+  margin: 0 !important;
+}
